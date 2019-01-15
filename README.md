@@ -24,7 +24,7 @@ Base configuration files to generate a Docker container with PHP, Apache and PDO
 
 >Since the IBM site is a real PITA, has changed multiple times, requires an account, and we have no guarantee that these files won't disappear overnight, here's a direct link to a working version:  
 https://mega.nz/#!MU43wCRC!TUxX4ZP75g3jqyX0vlCVIjD_L_W7Kj3tpilpKn4tcMc  
-And here's a link to the PDO_informix source, just in case:
+And here's a link to the PDO_informix source, just in case:  
 https://mega.nz/#!4dxlgQhI!J7ppK75hFd9PxsJ5Fsoc8n9s3IDRvhKxKzGQ-z8ZmA8
 
 ### Build...
@@ -35,7 +35,7 @@ https://mega.nz/#!4dxlgQhI!J7ppK75hFd9PxsJ5Fsoc8n9s3IDRvhKxKzGQ-z8ZmA8
 5. When containers are to be created, note that you must set the Infomix server IP:  
 `docker run -d -p 80:80 -v /var/www/html:/var/www/html --add-host ifxserver:192.168.0.2  ifxpdo`.
 
-###Or,
+### Or,
 Run the project with docker-compose:\
 `docker-compose up`
 
