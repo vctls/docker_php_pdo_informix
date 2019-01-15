@@ -1,4 +1,4 @@
-# Docker - InformixPDO
+# Docker PHP, Apache and PDO_Informix
 Inspired by https://github.com/joanrivera/docker-informixpdo
 
 Base configuration files to generate a Docker container with PHP, Apache and PDO_Informix support. 
