@@ -1,0 +1,2 @@
+#infomix_server    onsoctcp/onipcshm    server_hostname/ip    service_name
+demo_server        onsoctcp             ifxserver             sqlexec

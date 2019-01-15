@@ -1,0 +1,3 @@
+/src/cfg/env.php
+/php_apache/informix/files/*
+!/php_apache/informix/files/.gitkeep
