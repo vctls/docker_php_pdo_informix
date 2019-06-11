@@ -23,9 +23,9 @@ Base configuration files to generate a Docker container with PHP, Apache and PDO
 4. Copy `/src/cfg/env.php.dist` into `/src/cfg/env.php` and set your connection settings in that file.
 
 >Since the IBM site is a real PITA, has changed multiple times, requires an account, and we have no guarantee that these files won't disappear overnight, here's a direct link to a working version:  
-https://mega.nz/#!MU43wCRC!TUxX4ZP75g3jqyX0vlCVIjD_L_W7Kj3tpilpKn4tcMc  
+https://mega.nz/#!RZ4SEa5I!TUxX4ZP75g3jqyX0vlCVIjD_L_W7Kj3tpilpKn4tcMc  
 And here's a link to the PDO_informix source, just in case:  
-https://mega.nz/#!4dxlgQhI!J7ppK75hFd9PxsJ5Fsoc8n9s3IDRvhKxKzGQ-z8ZmA8
+https://mega.nz/#!ZQ5DGYjA!J7ppK75hFd9PxsJ5Fsoc8n9s3IDRvhKxKzGQ-z8ZmA8
 
 ### Build...
 
