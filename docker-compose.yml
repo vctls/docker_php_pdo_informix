@@ -1,8 +1,8 @@
 version: '3.6'
 
 services:
-  php_apache:
-    container_name: php_apache
+  informix:
+    container_name: informix
     build:
       context: ./php_apache
     volumes:

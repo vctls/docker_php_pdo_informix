@@ -42,11 +42,13 @@ Run the project with docker-compose:\
 Open `localhost` in your browser to see if it's working.
 
 You should see something like this:  
+```json
+[{"":"2019-07-12 14:28:29.160","0":"2019-07-12 14:28:29.160"}]
 ```
-/var/www/html/web/index.php:29:
-array (size=1)
-  0 => 
-    array (size=2)
-      '' => string '2019-01-15 14:06:59.185' (length=23)
-      0 => string '2019-01-15 14:06:59.185' (length=23)
+
+Declare the `informix.local` domain for clarity.
+
+You can pass URL encoded SQL queries as get parameter like this:
+```
+http://informix.local/?query=SELECT%20*%20FROM%20systables%20WHERE%20tabid=1;
 ```

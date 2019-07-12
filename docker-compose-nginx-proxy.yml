@@ -1,0 +1,19 @@
+version: '3.6'
+# Use this docker-compose file with nginx-proxy.
+services:
+  informix:
+    container_name: informix
+    build:
+      context: ./php_apache
+    volumes:
+      - ./src:/var/www/html
+    expose:
+      - 80
+    environment:
+      - VIRTUAL_PORT=80
+      - VIRTUAL_HOST=informix.local
+
+networks:
+  default:
+    external:
+      name: nginx-proxy
