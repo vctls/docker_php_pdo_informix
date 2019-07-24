@@ -24,7 +24,7 @@ if (array_key_exists('query', $_GET)) {
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 $stm = $pdo->query($sql);
-$results = $stm->fetchAll();
+$results = $stm->fetchAll(PDO::FETCH_ASSOC);
 $response = json_encode($results, JSON_INVALID_UTF8_IGNORE);
 $json_error = json_last_error() . ' ' . json_last_error_msg();
 
