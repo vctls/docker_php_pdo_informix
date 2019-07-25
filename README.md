@@ -3,7 +3,15 @@ Inspired by https://github.com/joanrivera/docker-informixpdo
 
 Base configuration files to generate a Docker container with PHP, Apache and PDO_Informix support. 
 
+This is a proof of concept on how to compile and install PDO_Informix with the IBM Informix SDK.
+
+It provides a very crude web API to which you can send SQL queries and retrieve the results in JSON format.
+
+⚠ **WARNING: Queries are executed literally. This provides no security whatsoever.**
+
 ### Setup
+
+You can either pull the image from the [Docker hub](https://cloud.docker.com/repository/docker/vctls/php_apache_pdo_informix) or build it yourself as follows.
 
 1. Clone the project.
 
@@ -51,4 +59,10 @@ Declare the `informix.local` domain for clarity.
 You can pass URL encoded SQL queries as get parameter like this:
 ```
 http://informix.local/?query=SELECT%20*%20FROM%20systables%20WHERE%20tabid=1;
+```
+
+You can also pass the PDO fetch style through the **fetch_style** parameter.  
+Default is 2 (`FETCH_ASSOC`).
+```
+http://informix.local/?query=SELECT%20*%20FROM%20systables%20WHERE%20tabid=1&fetch_style=3;
 ```
