@@ -15,7 +15,7 @@ You can either pull the image from the [Docker hub](https://cloud.docker.com/rep
 
 1. Clone the project.
 
-1. Download the CSDK and the PDO souce code. Put both into the `informix` directory:
+1. CSDK and the PDO souce code are versioned through Git LFS, but if for some reason you need to donwload them manually, backup links are below. Put both into the `informix` directory:
     * The Informix Client SDK, from the IBM website (as of 2019-01-15):  
     Tested with version 4.10.FC9DE.LINUX for x86-64 architecture.  
       https://www-01.ibm.com/marketing/iwm/iwm/web/pickUrxNew.do?source=ifxdl  
