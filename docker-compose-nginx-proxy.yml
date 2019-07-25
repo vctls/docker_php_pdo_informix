@@ -4,7 +4,7 @@ services:
   informix:
     container_name: informix
     build:
-      context: ./php_apache
+      context: ./
     volumes:
       - ./src:/var/www/html
     expose:

@@ -1,19 +1,19 @@
-FROM php:7.2-apache
+FROM php:7.2-apache AS php_apache_pdo_informix
 
 ENV INFORMIXDIR /opt/IBM/informix
 ENV PATH $INFORMIXDIR/bin:$PATH
 
 # Install Informix SDK.
-COPY informix /tmp
-COPY scripts/install-informix-clientsdk.sh /tmp/
+COPY php_apache/informix /tmp
+COPY php_apache/scripts/install-informix-clientsdk.sh /tmp/
 RUN sh /tmp/install-informix-clientsdk.sh
 
 # Compile and install the PDO PECL extension.
-COPY scripts/install-informixpdo.sh /tmp/
+COPY php_apache/scripts/install-informixpdo.sh /tmp/
 RUN sh /tmp/install-informixpdo.sh
 
 # Informix environment variables for Apache
-COPY scripts/envvars.sh /tmp
+COPY php_apache/scripts/envvars.sh /tmp/
 RUN sh /tmp/envvars.sh
 
 # Install and configure xdebug
@@ -32,8 +32,8 @@ echo "xdebug.profiler_enable_trigger=1" >> /usr/local/etc/php/conf.d/docker-php-
 echo "xdebug.profiler_enable_trigger_value=XDEBUG_PROFILE" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
 # Configuration files
-COPY conf/php.ini /usr/local/etc/php/
-COPY informix/sqlhosts $INFORMIXDIR/etc/
+COPY php_apache/conf/php.ini /usr/local/etc/php/
+COPY php_apache/informix/sqlhosts $INFORMIXDIR/etc/
 RUN echo "extension=pdo_informix.so" >> /usr/local/etc/php/conf.d/pdo.ini
 RUN echo "sqlexec  9088/tcp\nsqlexec-ssl  9089/tcp" >> /etc/services
 
@@ -43,6 +43,6 @@ RUN a2enmod rewrite
 RUN rm -r /tmp/*
 
 # Update the default apache site with the config we created.
-ADD conf/apache-config.conf /etc/apache2/sites-enabled/000-default.conf
+ADD php_apache/conf/apache-config.conf /etc/apache2/sites-enabled/000-default.conf
 
 CMD ["apache2-foreground"]
