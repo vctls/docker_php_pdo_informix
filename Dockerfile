@@ -45,4 +45,7 @@ RUN rm -r /tmp/*
 # Update the default apache site with the config we created.
 ADD php_apache/conf/apache-config.conf /etc/apache2/sites-enabled/000-default.conf
 
+# Copy the index.php file, a.k.a. The «API».
+COPY src/index.php /var/www/html/
+
 CMD ["apache2-foreground"]
