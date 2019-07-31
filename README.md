@@ -28,7 +28,7 @@ You can either pull the image from the [Docker hub](https://cloud.docker.com/rep
 
 3. (Optional) Review the files in the `scripts` directory and edit according to your needs. Be sure to check the file names if you're not using the ones provided.
 
-4. Copy `/src/cfg/env.php.dist` into `/src/cfg/env.php` and set your connection settings in that file.
+4. Copy `.env.dist` into `.env` and set your connection settings in that file.
 
 >Since the IBM site is a real PITA, has changed multiple times, requires an account, and we have no guarantee that these files won't disappear overnight, here's a direct link to a working version:  
 https://mega.nz/#!RZ4SEa5I!TUxX4ZP75g3jqyX0vlCVIjD_L_W7Kj3tpilpKn4tcMc  
@@ -51,7 +51,7 @@ Open `localhost` in your browser to see if it's working.
 
 You should see something like this:  
 ```json
-[{"":"2019-07-12 14:28:29.160","0":"2019-07-12 14:28:29.160"}]
+[{"":"2019-07-31 14:28:29.160","0":"2019-07-12 14:28:29.160"}]
 ```
 
 Declare the `informix.local` domain for clarity.

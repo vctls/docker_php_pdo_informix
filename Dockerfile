@@ -31,7 +31,7 @@ echo "xdebug.remote_host=host.docker.internal" >> /usr/local/etc/php/conf.d/dock
 echo "xdebug.profiler_enable_trigger=1" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini &&\
 echo "xdebug.profiler_enable_trigger_value=XDEBUG_PROFILE" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
-# Configuration files
+# Copy configuration files
 COPY php_apache/conf/php.ini /usr/local/etc/php/
 COPY php_apache/informix/sqlhosts $INFORMIXDIR/etc/
 RUN echo "extension=pdo_informix.so" >> /usr/local/etc/php/conf.d/pdo.ini

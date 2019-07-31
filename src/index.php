@@ -1,10 +1,16 @@
 <?php
 
-// Copy env.php.dist into env.php and change your connection settings.
-include '../cfg/env.php';
-
 const FETCH_STYLE = 'fetch_style';
 const QUERY = 'query';
+
+$host = getenv('INFORMIX_HOST');
+$port = getenv('INFORMIX_PORT');
+$db = getenv('INFORMIX_DB');
+$srv = getenv('INFORMIX_SERVER');
+$prt = getenv('INFORMIX_PROTOCOL');
+$scrolCurs = getenv('INFORMIX_SCROLCURS');
+$user = getenv('INFORMIX_USER');
+$pwd = getenv('INFORMIX_PASSWORD');
 
 $pdo = new PDO(
     "informix:host=$host;" .
