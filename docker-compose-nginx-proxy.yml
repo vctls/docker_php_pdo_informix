@@ -5,6 +5,7 @@ services:
     container_name: informix
     build:
       context: ./
+      target: php_apache_pdo_informix_dev
     volumes:
       - ./src:/var/www/html
     expose:
