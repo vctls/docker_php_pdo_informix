@@ -2,6 +2,7 @@
 
 const FETCH_STYLE = 'fetch_style';
 const QUERY = 'query';
+const PARAMS = 'params';
 
 $host = getenv('INFORMIX_HOST');
 $port = getenv('INFORMIX_PORT');
@@ -29,6 +30,12 @@ if (array_key_exists(QUERY, $_GET)) {
     $sql = 'SELECT CURRENT FROM systables WHERE tabid=1';
 }
 
+$params = [];
+
+if (array_key_exists(PARAMS, $_GET)) {
+    $params = $_GET[PARAMS];
+}
+
 if (array_key_exists(FETCH_STYLE, $_GET)) {
     $fetch_style = $_GET[FETCH_STYLE];
 } else {
@@ -38,7 +45,8 @@ if (array_key_exists(FETCH_STYLE, $_GET)) {
 // Enable exceptions on PDO errors.
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$stm = $pdo->query($sql);
+$stm = $pdo->prepare($sql);
+$stm->execute($params);
 $results = $stm->fetchAll($fetch_style);
 $response = json_encode($results, JSON_INVALID_UTF8_IGNORE);
 $json_error = json_last_error() . ' ' . json_last_error_msg();
