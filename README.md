@@ -56,13 +56,14 @@ You should see something like this:
 
 Declare the `informix.local` domain for clarity.
 
-You can pass URL encoded SQL queries as get parameter like this:
+You can pass SQL queries in get parameters as follows.
+The string must of course be URL encoded. Modern browsers will do that automatically.
 ```
-http://informix.local/?query=SELECT%20*%20FROM%20systables%20WHERE%20tabid=1;
+http://informix.local/?query=SELECT * FROM systables WHERE tabid=:tabid&params[tabid]=1;
 ```
 
 You can also pass the PDO fetch style through the **fetch_style** parameter.  
 Default is 2 (`FETCH_ASSOC`).
 ```
-http://informix.local/?query=SELECT%20*%20FROM%20systables%20WHERE%20tabid=1&fetch_style=3;
+http://informix.local/?query=SELECT * FROM systables WHERE tabid=:tabid&params[tabid]=1&fetch_style=3;
 ```
