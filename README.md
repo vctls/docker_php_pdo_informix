@@ -1,6 +1,14 @@
 # Docker PHP, Apache and PDO_Informix
 Inspired by https://github.com/joanrivera/docker-informixpdo
 
+<hr>
+
+**DISCLAIMER:** I'm archiving this repo as I never managed to make the PHP PDO driver work correctly 100% of the time.
+The handling of locales and character encoding with this DBMS is stupid. String to date conversions don't always support ISO format, diacritics are mangled, and when you fix the diacritics you end up with CHAR fields padded with garbage instead of whitespace.  
+On the other hand, the JDBC driver works just fine, so if you can use a “bridge” like this one instead of connecting directly from PHP, just use a JEE based service.  
+For example: https://github.com/vctls/jdbc-informix-bridge
+<hr>
+
 Base configuration files to generate a Docker container with PHP, Apache and PDO_Informix support. 
 
 This is a proof of concept on how to compile and install PDO_Informix with the IBM Informix SDK.
